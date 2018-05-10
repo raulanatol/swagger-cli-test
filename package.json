@@ -1,0 +1,19 @@
+{
+  "name": "swagger-cli-test",
+  "version": "0.0.1",
+  "private": true,
+  "description": "EOI demo swagger API",
+  "keywords": [],
+  "author": {
+    "name": "raulanatol"
+  },
+  "license": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.12.3",
+    "swagger-express-mw": "^0.1.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}

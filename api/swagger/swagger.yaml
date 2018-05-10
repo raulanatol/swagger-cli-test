@@ -1,0 +1,43 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: EOI API Movies
+host: localhost:10010
+basePath: /api
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /movies:
+    x-swagger-router-controller: movies
+    get:
+      description: Obtenemos todas las películas
+      operationId: getMovies
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/MoviesResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /swagger:
+    x-swagger-pipe: swagger_raw
+definitions:
+  MoviesResponse:
+    required:
+      - name
+    properties:
+      name:
+        type: string
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
