@@ -4,5 +4,8 @@ module.exports = {
 
 function getMovies(req, res) {
   console.log('Devolvemos todas las películas!!');
-  res.json({ name: 'Matrix' });
+  const movies = [
+    { name: 'Matrix' }
+  ];
+  res.json(movies);
 }

@@ -25,7 +25,9 @@ paths:
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
+            type: array
+            items:
+              $ref: "#/definitions/ErrorResponse"
   /swagger:
     x-swagger-pipe: swagger_raw
 definitions:
