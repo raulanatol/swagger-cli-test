@@ -26,7 +26,7 @@ paths:
         '200':
           description: Success
           schema:
-            $ref: "#/definitions/MoviesResponse"
+            $ref: "#/definitions/Movie"
         default:
           description: Error
           schema:
@@ -41,7 +41,30 @@ paths:
         "200":
           description: Success
           schema:
-            $ref: "#/definitions/MoviesResponse"
+            type: array
+            items:
+              $ref: "#/definitions/Movie"
+        default:
+          description: Error
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/ErrorResponse"
+    post:
+      description: Creamos una nueva película
+      parameters:
+        - name: movie
+          in: body
+          description: Nombre de la película
+          required: true
+          schema: 
+            $ref: "#/definitions/Movie"
+      operationId: newMovie
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Movie"
         default:
           description: Error
           schema:
@@ -51,7 +74,7 @@ paths:
   /swagger:
     x-swagger-pipe: swagger_raw
 definitions:
-  MoviesResponse:
+  Movie:
     required:
       - name
     properties:
