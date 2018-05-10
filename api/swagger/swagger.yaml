@@ -31,7 +31,20 @@ paths:
           description: Error
           schema:
             items:
-              $ref: "#/definitions/ErrorResponse"    
+              $ref: "#/definitions/ErrorResponse"  
+    delete:
+      description: Borramos una película
+      operationId: deleteMovie
+      parameters:
+        - in: path
+          name: movie_uuid
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: "#/definitions/SuccessResponse"
   /movies:
     x-swagger-router-controller: movies
     get:
@@ -71,9 +84,16 @@ paths:
             type: array
             items:
               $ref: "#/definitions/ErrorResponse"
+    
   /swagger:
     x-swagger-pipe: swagger_raw
 definitions:
+  SuccessResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
   Movie:
     required:
       - name

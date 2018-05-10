@@ -1,7 +1,8 @@
 module.exports = {
   getMovies,
   getMovie,
-  newMovie
+  newMovie,
+  deleteMovie
 };
 
 function getMovies(req, res) {
@@ -23,4 +24,9 @@ function newMovie(req, res) {
     name: req.swagger.params.movie.value.name
   };
   res.json(newMovie);
+}
+
+function deleteMovie(req, res) {
+  console.log('Borramos la película con id', req.swagger.params.movie_uuid.value);
+  res.json({ message: 'Película borrada!' });
 }
