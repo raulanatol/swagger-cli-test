@@ -68,7 +68,7 @@ paths:
       parameters:
         - name: movie
           in: body
-          description: Nombre de la película
+          description: La película a crear
           required: true
           schema: 
             $ref: "#/definitions/Movie"
@@ -84,6 +84,21 @@ paths:
             type: array
             items:
               $ref: "#/definitions/ErrorResponse"
+    put:
+      description: Actualizamos una película
+      operationId: updateMovie
+      parameters:
+        - in: body
+          name: movie
+          description: La película a modificar
+          required: true
+          schema:
+            $ref: "#/definitions/Movie"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Movie" 
     
   /swagger:
     x-swagger-pipe: swagger_raw
@@ -96,9 +111,12 @@ definitions:
         type: string
   Movie:
     required:
+      - uuid
       - name
     properties:
       name:
+        type: string
+      uuid: 
         type: string
   ErrorResponse:
     required:
