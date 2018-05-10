@@ -1,5 +1,6 @@
 module.exports = {
-  getMovies
+  getMovies,
+  getMovie
 };
 
 function getMovies(req, res) {
@@ -8,4 +9,9 @@ function getMovies(req, res) {
     { name: 'Matrix' }
   ];
   res.json(movies);
+}
+
+function getMovie(req, res) {
+  console.log('Buscando por la película con id', req.swagger.params.movie_uuid.value);
+  res.json({ name: 'Aquí tienes tu película' });
 }

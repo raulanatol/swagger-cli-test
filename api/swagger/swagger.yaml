@@ -12,6 +12,26 @@ consumes:
 produces:
   - application/json
 paths:
+  /movies/{movie_uuid}:
+    x-swagger-router-controller: movies
+    get:
+      description: Obtenemos la película indicada
+      operationId: getMovie
+      parameters:
+        - in: path
+          name: movie_uuid
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: "#/definitions/MoviesResponse"
+        default:
+          description: Error
+          schema:
+            items:
+              $ref: "#/definitions/ErrorResponse"    
   /movies:
     x-swagger-router-controller: movies
     get:
